@@ -1,0 +1,124 @@
+---
+title: "Python dans l'environnement du statisticien public"
+subtitle: "Canal'Stat - 30/09/2022"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    # logo: images/logo_masa.png
+    css: styles.css
+    footer: Canal'Stat - 30/09/2022
+resources:
+  - demo.pdf
+---
+
+## Qui sommes-nous ?  {background="#43464B"  transition="fade" transition-speed="fast"}
+
+- François Semecurbe  
+[Chef du bureau des Statistiques Structurelles, Environnementales et Forestières]{style="color: #BABFC4;"}
+
+- Benoit Mirouse  
+[Responsable Enquête TERUTI]{style="color: #BABFC4;"}
+
+- Anaël Delorme  
+[Responsable des statistiques sur l'Aquaculture]{style="color: #BABFC4;"}
+
+
+## Où sommes-nous ?  {background="#43464B"}
+```{r}
+#| echo: false
+#| fig-height: 5
+library(leaflet)
+leaflet() %>%
+  setView(lat = 43.604462, lng = 1.444247, zoom = 9) %>% 
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=43.53315, lng=1.4865, popup="SSP - Complexe Agricole d'Auzeville")
+```
+
+## [ Tout allait bien... grâce à R ! ]{style="color: white; background-color: #43464B"} {background-image="images/chateau.jpg"}
+
+
+![](images/Rstudio_ex.png ){.absolute .fragment top="100" left="10" width="600"}
+
+![](images/app_shiny_aqua.png){.absolute .fragment top="180" right="20" width="700"}
+
+
+## [Mais... Python débarque]{style="color: white;"} {background-image="images/orage.jpg" .smaller}
+
+![](images/posit.webp ){.absolute .fragment top="100" left="90" width="400"}
+
+![](images/info_encadrant.png){.absolute .fragment top="300" left="150" width="450"} 
+["migrer vers un autre langage open source (R, Python, selon les usages et les compétences disponibles)"]{.absolute .fragment top="330" left="650" style="color: white;"} 
+
+
+
+# Alors : python pour nous ou pas ? {background="#43464B"}
+
+## Python en 2 mots
+
+# Et si ?... on s'en moquait de Python... {background="#43464B"}
+
+## Et oui R c'est super !
+
+Rappel diapo *"R c'est super"*
+
+# Mais on se passe de tout ce qui est top en Python
+
+## Jupyter pour collaborer simplement sur nos données
+
+## Faire de la cartographie simplement
+
+::: {style="text-align: center; margin-top: 1em"}
+[Greppo](https://greppo.io/){preview-link="true" style="text-align: center"}
+:::
+
+## Analyse de textes
+
+Exemple de code R avec lignes sélectionnées au fur et à mesure
+
+``` {.python code-line-numbers="4-5|7|10"}
+import numpy as np
+import matplotlib.pyplot as plt
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+## Et plein d'autres choses
+
+- Web scraping : extraire des données directement de sites internet    
+- Machine Learning : créer des systèmes qui apprennent en fonction des données qui traitent.  
+   Par exemple : apprendre des données satellitaires pour créer *automatiquement* des cartes d'occupation des sols   
+
+# Pourquoi ne pas directement tout faire en Python et arrêter R ? 
+
+## On vous l'a dit : **R c'est super !**
+
+Se passer de R est possible, mais cela nous ferait passer à côté : 
+
+- Tidyverse : 
+  - pour la préparation de données (*Data wrangling*) : rapide, efficace, lisible
+  - pour la création de graphiques
+- RStudio : outil *clé en mains*, facile à installer et à utiliser
+- Shiny : pour créer facilement des petites applications
+- Quarto : pour diffuser en PDF ou sur Internet
+
+# ... R + Python, ensemble ?
+
+## Les outils s'ouvrent aux deux langages
+
+- Quarto : permet de faire dans un même programme du R et du Python 
+- Shiny : nouvelle version en python
+- Outils de dév (VS Code) permettent de faire les 2
+- ...
+
+## Idée : bénéficie du meilleur des 2 mondes 
+
+# Qu'en pensez-vous ?
+
