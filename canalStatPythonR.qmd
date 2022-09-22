@@ -37,7 +37,7 @@ leaflet() %>%
   addMarkers(lat=43.53315, lng=1.4865, popup="SSP - Complexe Agricole d'Auzeville")
 ```
 
-## [ Tout allait bien... grâce à R ! ]{style="color: white; background-color: #43464B"} {background-image="images/chateau.jpg"}
+## [ Tout allait bien... grâce à [R](https://www.r-project.org/) ! ]{style="color: white; background-color: #43464B"} {background-image="images/chateau.jpg"}
 
 
 ![](images/Rstudio_ex.png ){.absolute .fragment top="100" left="10" width="600"}
@@ -45,80 +45,167 @@ leaflet() %>%
 ![](images/app_shiny_aqua.png){.absolute .fragment top="180" right="20" width="700"}
 
 
-## [Mais... Python débarque]{style="color: white;"} {background-image="images/orage.jpg" .smaller}
+## [Mais... [Python](https://www.python.org/) débarque]{style="color: white;"} {background-image="images/orage.jpg" .smaller}
 
-![](images/posit.webp ){.absolute .fragment top="100" left="90" width="400"}
+![](images/posit.webp ){.absolute .fragment top="100" left="110" width="400"}
 
-![](images/info_encadrant.png){.absolute .fragment top="300" left="150" width="450"} 
-["migrer vers un autre langage open source (R, Python, selon les usages et les compétences disponibles)"]{.absolute .fragment top="330" left="650" style="color: white;"} 
-
+![](images/info_encadrant.png){.absolute .fragment top="120" left="550" width="450"} 
 
 
-# Alors : python pour nous ou pas ? {background="#43464B"}
+## [Python](https://www.python.org/) en 2 mots {background="#43464B" background-image="images/code_python.png"  background-opacity="0.1"}
 
-## Python en 2 mots
+- Langage de programmation
+- Open source et gratuit
+- Utilisation de bibliothèques spécialisées s'adaptant aux métiers
+- Très grande communauté d'utilisateurs et contributeurs
 
-# Et si ?... on s'en moquait de Python... {background="#43464B"}
+## Alors... que faire avec [Python](https://www.python.org/) dans nos équipes de stat publique ? {background="#43464B" background-image="images/python.jpg"}
 
-## Et oui R c'est super !
 
-Rappel diapo *"R c'est super"*
 
-# Mais on se passe de tout ce qui est top en Python
+## Et si ?... on faisait sans [Python](https://www.python.org/) {background="#43464B"}
+![](images/not_enter.png){fig-align="center"}
 
-## Jupyter pour collaborer simplement sur nos données
 
-## Faire de la cartographie simplement
+# Et oui, [R](https://www.r-project.org/) c'est super ! ...
 
-::: {style="text-align: center; margin-top: 1em"}
-[Greppo](https://greppo.io/){preview-link="true" style="text-align: center"}
+::: {.fragment .fade-in}
+[Mais on se passe de tout ce que nous offre [Python](https://www.python.org/)]{style="color: #936AC3; font-size: 200%; font-weight: bold"}
+![](images/thumbs-up.svg){.absolute left=950 top=200 width="90px"}
 :::
 
-## Analyse de textes
 
-Exemple de code R avec lignes sélectionnées au fur et à mesure
+## [Jupyter](https://jupyter.org/) pour collaborer simplement sur nos données
 
-``` {.python code-line-numbers="4-5|7|10"}
-import numpy as np
-import matplotlib.pyplot as plt
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
+## Cartographie simplement
+
+### Démo
+
+::: {style="text-align: center; margin-top: 1em"}
+[![Greppo](images/greppo.png)](https://greppo.io/){preview-link="true" style="text-align: center"}
+:::
+
+## Cartographie simplement 
+
+### Code création des ronds
+
+``` {.python code-line-numbers="1|2|4-9"}
+variables = ["Recolte de bois", "Recolte de bois/Grumes", "Recolte de bois/Bois d'industrie", "Recolte de bois/Bois energie"]
+colors = ['brown', 'green', 'blue', 'red']
+ronds=list()
+for i,v in enumerate(variables):
+    r = exf.centroid.buffer(1000*k*exf[v]**0.5)
+    r = gpd.GeoDataFrame(r,geometry=0)
+    r = r.to_crs(epsg=4326)
+    r = pd.merge(r, exf[[v,'Departement']], left_index=True, right_index=True)
+    ronds.append(r)
 ```
+
+## Cartographie simplement 
+
+### Code création des couches
+
+``` {.python code-line-numbers="1|2-7|8-11|12-21"}
+app.display(name='title', value='Enquete EXFSRI')
+for i in range(4):
+    app.vector_layer(
+        data=ronds[i],
+        name=variables[i],
+        style={"color":colors[i]},
+        visible=False,)
+app.base_layer(
+    name="Open Street Map",
+    visible=True,
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",)
+app.vector_layer(
+    data=reg,
+    name="Regions",
+    style={"color":'black', "fillOpacity":"0"},
+    visible=True,)
+app.vector_layer(
+    data=dep,
+    name="Departements",
+    style={"color":'dimgrey', "fillOpacity":"0", "weight":"1"},
+    visible=False,)
+```
+
+
+## Cartographie simplement
+
+### Ressources
+
+[![Site Greppo](images/greppo_site.png)](https://greppo.io/){preview-link="true" style="text-align: center"}
+[Programmes sur le Github - bmirouse](https://github.com/bmirouse/Greppo-canal-stat-){preview-link="true" style="text-align: center"}
+
+## [Analyse de textes](https://towardsai.net/p/data-mining/text-mining-in-python-steps-and-examples-78b3f8fd913b)
+
+
 
 ## Et plein d'autres choses
 
-- Web scraping : extraire des données directement de sites internet    
-- Machine Learning : créer des systèmes qui apprennent en fonction des données qui traitent.  
-   Par exemple : apprendre des données satellitaires pour créer *automatiquement* des cartes d'occupation des sols   
+- [Web scraping](https://www.edureka.co/blog/web-scraping-with-python/)  : extraire des données directement de sites internet    
+![](images/webscraping.jpg){position=center}
+   <!-- ![](images/ai.jpg){.absolute top=400 left=850 width="20%"} -->
+- [Machine Learning](https://makina-corpus.com/data-science/initiation-au-machine-learning-avec-python-la-theorie) : créer des systèmes qui apprennent en fonction des données qui traitent.  
+   [Exemple : reconnaissance d'images, recommandation de produits, détection de fraudes...]{style="font-size: 60%; font-weight: italic"}
 
-# Pourquoi ne pas directement tout faire en Python et arrêter R ? 
 
-## On vous l'a dit : **R c'est super !**
+[Tutoriels sur le [SSP Cloud](https://www.sspcloud.fr/formation)]{.aside style="font-size: 80%; font-weight: italic"}
 
-Se passer de R est possible, mais cela nous ferait passer à côté : 
+# Ok [Python](https://www.python.org/) c'est top ! ...
 
-- Tidyverse : 
-  - pour la préparation de données (*Data wrangling*) : rapide, efficace, lisible
+::: {.fragment .fade-in}
+[Alors on fait tout en [Python](https://www.python.org/), et on arrête [R](https://www.r-project.org/) ?]{style="color: #936AC3; font-size: 200%; font-weight: bold"}
+![](images/grimace.png){.absolute left=500 top=260 width="140px"}
+:::
+
+## On vous l'a dit : *[R](https://www.r-project.org/) c'est super !*
+
+
+Se passer de [R](https://www.r-project.org/) est possible, mais cela nous ferait passer à côté : 
+
+:::: {.columns}
+::: {.column width="20%"}
+![](images/tidyverse.png){width="70%"}
+![](images/rstudio.png){width="40%"}
+![](images/rshiny.png)
+![](images/quarto.png)
+:::
+
+::: {.column width="80%"}
+- [Tidyverse](https://www.tidyverse.org/){preview-link="true" style="text-align: center"} : rapide, simple, efficace
+  - pour la préparation de données
   - pour la création de graphiques
-- RStudio : outil *clé en mains*, facile à installer et à utiliser
-- Shiny : pour créer facilement des petites applications
-- Quarto : pour diffuser en PDF ou sur Internet
+  
+- [RStudio](https://www.rstudio.com/){preview-link="true" style="text-align: center"} : outil *clé en mains*
 
-# ... R + Python, ensemble ?
+- [Shiny](https://shiny.rstudio.com/){preview-link="true" style="text-align: center"} : création facile de petites applications
 
-## Les outils s'ouvrent aux deux langages
+- [Quarto](https://quarto.org/){preview-link="true" style="text-align: center"} : diffusion (pdf, internet...)
+:::
+::::
 
-- Quarto : permet de faire dans un même programme du R et du Python 
-- Shiny : nouvelle version en python
-- Outils de dév (VS Code) permettent de faire les 2
-- ...
+# ...[R](https://www.r-project.org/) + [Python](https://www.python.org/) ensemble, est-ce possible ? {background-image="images/coeur.jpg" background-opacity="0.25"}
 
-## Idée : bénéficie du meilleur des 2 mondes 
+## Cohabitation naturelle entre ces 2 langages 
 
-# Qu'en pensez-vous ?
+- Possible d'utiliser des programmes [R](https://www.r-project.org/) et [Python](https://www.python.org/) dans un même projet de développement
+- [Quarto](https://quarto.org/){preview-link="true" style="text-align: center"} : [R](https://www.r-project.org/) et du [Python](https://www.python.org/) ensemble nativement
+- [Shiny](https://shiny.rstudio.com/py/){preview-link="true" style="text-align: center"} : nouvelle version en [Python](https://www.python.org/)
+- Outils de dév ([RStudio](https://www.rstudio.com/){preview-link="true" style="text-align: center"}, [VS Code](https://code.visualstudio.com/)) permettent de faire les 2
+
+## Idée à discuter : prendre le meilleur des 2 mondes 
+
+## [Qu'en pensez-vous ?]{style="font-size: 170%; font-weight: bold"} {background-image="images/discussion.png"}
+
+## Merci !{background="#43464B" background-video="images/sousmarin.mp4" background-video-loop="true" background-video-muted="true"}
+
+Cette présentation a été réalisée avec Quarto :
+
+- les sources sont disponibles sur [Github](https://github.com/anaelDelorme/pythonCanalStat)
+- la présentation est accessible sur [Github - Pages](https://anaeldelorme.github.io/pythonCanalStat/canalStatPythonR.html)
+- les images proviennent de [Pixabay](https://pixabay.com/fr) et de [Storyset](https://storyset.com/)
+
+
+
 
