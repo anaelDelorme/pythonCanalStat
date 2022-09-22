@@ -134,7 +134,7 @@ app.vector_layer(
 
 ### Ressources
 
-[![Site Greppo](images/greppo_site.png)](https://greppo.io/){preview-link="true" style="text-align: center"}
+[![Site Greppo](images/greppo_site.png)](https://docs.greppo.io/){preview-link="true" style="text-align: center"}
 [Programmes sur le Github - bmirouse](https://github.com/bmirouse/Greppo-canal-stat-){preview-link="true" style="text-align: center"}
 
 ## [Analyse de textes](https://towardsai.net/p/data-mining/text-mining-in-python-steps-and-examples-78b3f8fd913b)
@@ -194,9 +194,12 @@ Se passer de [R](https://www.r-project.org/) est possible, mais cela nous ferait
 - [Shiny](https://shiny.rstudio.com/py/){preview-link="true" style="text-align: center"} : nouvelle version en [Python](https://www.python.org/)
 - Outils de dév ([RStudio](https://www.rstudio.com/){preview-link="true" style="text-align: center"}, [VS Code](https://code.visualstudio.com/)) permettent de faire les 2
 
-## Idée à discuter : prendre le meilleur des 2 mondes 
+## Idée à discuter : prendre le meilleur des 2 mondes {background="#14243E"}
+
+![](images/python_R.png)
 
 ## [Qu'en pensez-vous ?]{style="font-size: 170%; font-weight: bold"} {background-image="images/discussion.png"}
+
 
 ## Merci !{background="#43464B" background-video="images/sousmarin.mp4" background-video-loop="true" background-video-muted="true"}
 
