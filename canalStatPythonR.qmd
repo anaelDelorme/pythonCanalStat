@@ -76,6 +76,7 @@ leaflet() %>%
 
 
 ## [Jupyter](https://jupyter.org/) pour collaborer simplement sur nos données
+{{< video src="images/demo_jupyter.mp4" >}}
 
 ## Cartographie simplement
 
