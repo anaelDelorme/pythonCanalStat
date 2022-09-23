@@ -140,6 +140,35 @@ app.vector_layer(
 
 ## [Analyse de textes](https://towardsai.net/p/data-mining/text-mining-in-python-steps-and-examples-78b3f8fd913b)
 
+### A partir des réponses des enquêtés : 
+
+![](images/words.png)
+
+## [Analyse de textes](https://towardsai.net/p/data-mining/text-mining-in-python-steps-and-examples-78b3f8fd913b)
+
+### Code
+
+``` {.python code-line-numbers="6|8|10|12|14-18"}
+import pandas as pd # Pour traiter les données
+from wordcloud import WordCloud # Pour faire le nuage de mots
+import matplotlib.pyplot as plt # le package de gestion des graphiques
+from PIL import Image # masque d'image format poisson
+
+commentaires = pd.read_csv('commentaire_aqua.csv', sep=';', engine='python',  encoding='latin')
+
+mots = commentaires['Q6.4'].str.lower().str.split(' ').sum()
+
+stopwords = pd.read_csv("stop_words_french.txt", header=None)[0].tolist()
+
+text = ' '.join([mot for mot in mots if mot not in stopwords])
+
+wordcloud = wordcloud = WordCloud(width=6800, height=2800, max_words=60, colormap='RdYlGn',scale=3, background_color="white").generate(text)
+plt.figure( figsize=(20,10), facecolor='k')
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show();
+```
+
 
 
 ## Et plein d'autres choses
