@@ -82,10 +82,7 @@ leaflet() %>%
 
 ### Démo
 
-::: {style="text-align: center; margin-top: 1em"}
-[![Greppo](images/greppo.png)](https://greppo.io/){preview-link="true" style="text-align: center"}
-:::
-
+{{< video src="images/video greppo.mp4" >}}
 ## Cartographie simplement 
 
 ### Code création des ronds
@@ -228,16 +225,18 @@ Se passer de [R](https://www.r-project.org/) est possible, mais cela nous ferait
 
 ![](images/python_R.png)
 
-## [Qu'en pensez-vous ?]{style="font-size: 170%; font-weight: bold"} {background-image="images/discussion.png"}
-
-
 ## Merci !{background="#43464B" background-video="images/sousmarin.mp4" background-video-loop="true" background-video-muted="true"}
 
 Cette présentation a été réalisée avec Quarto :
 
-- les sources sont disponibles sur [Github](https://github.com/anaelDelorme/pythonCanalStat)
-- la présentation est accessible sur [Github - Pages](https://anaeldelorme.github.io/pythonCanalStat/canalStatPythonR.html)
+- les sources sont disponibles sur [Github : https://github.com/anaelDelorme/pythonCanalStat](https://github.com/anaelDelorme/pythonCanalStat)
+- la présentation est accessible sur [Github - Pages : https://anaeldelorme.github.io/pythonCanalStat/](https://anaeldelorme.github.io/pythonCanalStat/canalStatPythonR.html)
 - les images proviennent de [Pixabay](https://pixabay.com/fr) et de [Storyset](https://storyset.com/)
+
+## [Qu'en pensez-vous ?]{style="font-size: 170%; font-weight: bold"} {background-image="images/discussion.png"}
+
+
+
 
 
 
