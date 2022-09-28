@@ -76,13 +76,15 @@ leaflet() %>%
 
 
 ## [Jupyter](https://jupyter.org/) pour collaborer simplement sur nos données
-{{< video src="images/demo_jupyter.mp4" >}}
+{{< video src="images/video_jupyter.mp4" >}}
 
 ## Cartographie simplement
 
 ### Démo
 
-{{< video src="images/video greppo.mp4" >}}
+[En ligne](https://calm-gorge-78401.herokuapp.com/){preview-link="true" style="text-align: center"}  
+
+Ou en vidéo : {{< video src="images/video greppo.mp4" >}}
 ## Cartographie simplement 
 
 ### Code création des ronds

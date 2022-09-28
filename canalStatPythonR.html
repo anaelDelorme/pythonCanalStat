@@ -415,8 +415,8 @@
 <h2>Où sommes-nous ?</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-efed1e4bb8f11fc7e085" style="width:960px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-efed1e4bb8f11fc7e085">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[43.604462,1.444247],9,[]],"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[43.53315,1.4865,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"SSP - Complexe Agricole d'Auzeville",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.53315,43.53315],"lng":[1.4865,1.4865]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e66e7181fc449df6c78f" style="width:960px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e66e7181fc449df6c78f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[43.604462,1.444247],9,[]],"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[43.53315,1.4865,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"SSP - Complexe Agricole d'Auzeville",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.53315,43.53315],"lng":[1.4865,1.4865]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -455,15 +455,13 @@
 </section>
 <section id="jupyter-pour-collaborer-simplement-sur-nos-données" class="slide level2">
 <h2><a href="https://jupyter.org/">Jupyter</a> pour collaborer simplement sur nos données</h2>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/demo_jupyter.mp4"></video>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/video_jupyter.mp4"></video>
 </section>
 <section id="cartographie-simplement" class="slide level2">
 <h2>Cartographie simplement</h2>
 <h3 id="démo">Démo</h3>
-<video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/video greppo.mp4"></video>
-</section>
-<section id="cartographie-simplement-1" class="slide level2">
-<h2>Cartographie simplement</h2>
+<p><a href="https://calm-gorge-78401.herokuapp.com/" data-preview-link="true" style="text-align: center">En ligne</a></p>
+<p>Ou en vidéo : <video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/video greppo.mp4"></video> ## Cartographie simplement</p>
 <h3 id="code-création-des-ronds">Code création des ronds</h3>
 <div class="sourceCode" id="cb1" data-code-line-numbers="1|2|4-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>variables <span class="op">=</span> [<span class="st">"Recolte de bois"</span>, <span class="st">"Recolte de bois/Grumes"</span>, <span class="st">"Recolte de bois/Bois d'industrie"</span>, <span class="st">"Recolte de bois/Bois energie"</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>colors <span class="op">=</span> [<span class="st">'brown'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>, <span class="st">'red'</span>]</span>
@@ -475,7 +473,7 @@
 <span id="cb1-8"><a href="#cb1-8"></a>    r <span class="op">=</span> pd.merge(r, exf[[v,<span class="st">'Departement'</span>]], left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-9"><a href="#cb1-9"></a>    ronds.append(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="cartographie-simplement-2" class="slide level2">
+<section id="cartographie-simplement-1" class="slide level2">
 <h2>Cartographie simplement</h2>
 <h3 id="code-création-des-couches">Code création des couches</h3>
 <div class="sourceCode" id="cb2" data-code-line-numbers="1|2-7|8-11|12-21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>app.display(name<span class="op">=</span><span class="st">'title'</span>, value<span class="op">=</span><span class="st">'Enquete EXFSRI'</span>)</span>
@@ -500,7 +498,7 @@
 <span id="cb2-20"><a href="#cb2-20"></a>    style<span class="op">=</span>{<span class="st">"color"</span>:<span class="st">'dimgrey'</span>, <span class="st">"fillOpacity"</span>:<span class="st">"0"</span>, <span class="st">"weight"</span>:<span class="st">"1"</span>},</span>
 <span id="cb2-21"><a href="#cb2-21"></a>    visible<span class="op">=</span><span class="va">False</span>,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="cartographie-simplement-3" class="slide level2">
+<section id="cartographie-simplement-2" class="slide level2">
 <h2>Cartographie simplement</h2>
 <h3 id="ressources">Ressources</h3>
 <p><a href="https://docs.greppo.io/" data-preview-link="true" style="text-align: center"><img data-src="images/greppo_site.png" alt="Site Greppo"></a> <a href="https://github.com/bmirouse/Greppo-canal-stat-" data-preview-link="true" style="text-align: center">Programmes sur le Github - bmirouse</a></p>
